@@ -1,0 +1,35 @@
+<ul>
+    <li ng-repeat="item in items | filter: filterFn">
+        <a ng-href="{{item.html_url}}" target="_blank">
+            <div class="item">
+                <div class="head clearfix">
+                    <div class="pull-left">
+                        <div class="arrows">
+                            <span><img src="../images/next.png" alt="arrow"></span>
+                            <span class="arrow2"><img src="../images/next.png" alt="arrow"></span>
+                        </div>
+                        <h3>{{item.full_name}}</h3>
+                    </div>
+                    <div class="counters pull-right">
+                        <span>
+                            <span class="glyphicon glyphicon-star"></span>
+                            <span class="count">{{item.stargazers_count}}</span>
+                        </span>
+                        <span>
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                            <span class="count">{{item.watchers_count}}</span>
+                        </span>
+                    </div>
+                </div>
+                <p>
+                    <span>Language: {{item.language}}</span>
+                     <span ng-if="item.description">| {{item.description}}</span>
+                </p>
+            </div>
+        </a>
+    </li>
+</ul>
+
+<div class="loadmore">
+    <button class="btn btn-primary" ng-click="loadMore()">Load More</button>
+</div>

@@ -1,0 +1,11 @@
+{
+  "name": "TopGit",
+  "version": "0.0.1",
+  "description": "A pseudo front end application which would let the users help list and browse top github projects conveniently.",
+  "author": "Mansoor Khan - thisismansoorkhan@gmail.com",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-util": "^3.0.7",
+    "gulp-webserver": "^0.9.1"
+  }
+}

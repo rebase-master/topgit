@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="tgApp">
+    <head>
+        <meta charset="UTF-8">
+        <title>TopGit - Finding the best github projects!</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/rzslider.css">
+        <link rel="stylesheet" href="css/nprogress.css">
+        <link rel="stylesheet" href="css/style.css">
+
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+        <script src="js/nprogress.js"></script>
+        <script src="js/rzslider.js"></script>
+        <script src="js/controllers.js"></script>
+        <script src="js/app.js"></script>
+    </head>
+
+    <body>
+
+        <div id="main" class="container">
+            <header id="header">
+                <nav class="cf" ng-include="'views/nav.html'"></nav>
+            </header>
+            <div class="page" ng-controller="DataController">
+                <div class="container-fluid wrapper">
+
+                    <div id="content" class="col-sm-8 section">
+                        <div class="searchbox">
+                            <form class="navbar-form text-center" name="searchForm" ng-submit="searchRepos()" role="search" novalidate>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-change="searching()" ng-model="selLang" ng-required="true" value="{{searchTerm}}" placeholder="Search by language">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" type="submit" ng-disabled="searchForm.$invalid"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="sresults" ng-if="search && selLang" id="src">
+                                <ul>
+                                    <li ng-repeat="lang in languages | filter: selLang" ng-click="selectLang(lang)">
+                                        {{lang}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="srs" ng-view></div>
+
+                    </div>
+
+                    <div id="sidebar" class="col-sm-4 section">
+                        <div class="item-group">
+                            <p class="item-heading">
+                                <span class="glyphicon glyphicon-tasks"></span>
+                                Rate Limit
+                            </p>
+                            <div class="item">
+                                <p>{{rateLimitRemaining}} out of {{rateLimit}}</p>
+                            </div>
+                        </div>
+                        <div class="item-group">
+                            <p class="item-heading">
+                                <span class="glyphicon glyphicon-star"></span>
+                                Stars
+                            </p>
+                            <div class="item">
+                                <div class="progress-box">
+                                    <div>
+                                        <rzslider
+                                                rz-slider-model="slider.value"
+                                                rz-slider-options="slider.options"
+                                                rz-slider-model="query"
+                                        >
+                                        </rzslider>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
+

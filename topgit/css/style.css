@@ -1,0 +1,144 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+html,body{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+body{
+}
+#main {
+    padding: 20px 0 0;
+}
+#header .status-container{
+    font-size: 18px;
+}
+.wrapper {
+    border-top: 1px solid #ddd;
+    margin-top: 20px;
+}
+.wrapper .section{
+    padding: 20px;
+}
+#content {
+    border-right: 1px solid #ddd;
+    min-height: 450px;
+}
+#content .srs {
+    min-height: 200px;
+}
+#content .searchbox{
+    margin-bottom: 20px;
+}
+#content .searchbox .input-group{
+    width: 80%;
+}
+#content .searchbox #src {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: -8px 0 0 11%;
+    max-height: 300px;
+    overflow-y: scroll;
+    position: absolute;
+    width: 60%;
+    z-index: 1;
+}
+
+#content .searchbox #src li {
+    list-style-type: none;
+    padding: 10px 0 5px 20px;
+}
+#content .searchbox #src li:hover {
+    cursor: pointer;
+    background-color: #eee;
+}
+
+#content .srs li {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    -webkit-box-shadow: -4px 1px 13px #ddd;
+    -moz-box-shadow: -4px 1px 13px #ddd;
+    box-shadow: -4px 1px 13px #ddd;
+    list-style-type: none;
+    margin: 10px 10px 20px;
+}
+
+#content .srs li a{
+    display: block;
+    padding-left: 20px;
+}
+
+#content .srs li a .arrow2 {
+    margin-left: -18px;
+}
+
+#content .srs .arrows img{
+    max-width: 20px;
+}
+
+#content .srs .arrows {
+    margin-top: 3px;
+    opacity: 0.7;
+    vertical-align: top;
+}
+
+#content .srs li a:hover{
+    text-decoration: none;
+    opacity:.7;
+}
+#content .srs li a h3{
+    color: #F0AB00;
+    display: inline;
+    margin: 0;
+}
+#content .srs li a p{
+    color: #555;
+    margin-left: 32px;
+    margin-top: 10px;
+}
+#content .srs li a .arrows{
+    display: inline-block;
+}
+#content .srs .item{
+    padding: 20px 20px 20px 0;
+}
+#content .srs .item .counters > span{
+    margin-left:15px;
+}
+#content .srs .item .counters span span{
+    padding-left: 2px;
+}
+
+
+
+#sidebar .item-group {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    padding: 20px 10px;
+}
+#sidebar .item-heading {
+    background-color: #f9f9f9;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    padding: 5px 10px;
+    text-align: left;
+}
+
+#sidebar .item-heading span {
+    margin-right: 5px;
+    vertical-align: text-top;
+}
+#sidebar .item {
+    background-color: #eee;
+    border: 1px solid #ddd;
+    margin: 0;
+    padding: 5px;
+    text-align: center;
+}
+#sidebar .item p{
+    margin: 0
+}
