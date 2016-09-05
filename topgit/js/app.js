@@ -11,6 +11,10 @@ tgApp.config(['$routeProvider', function($routeProvider) {
         templateUrl: 'views/list.html',
         controller: 'DataController'
     }).
+    when('/search?query=:queryParam', {
+        templateUrl: 'views/list.html',
+        controller: 'SearchController'
+    }).
     otherwise({
         redirectTo: '/'
     });

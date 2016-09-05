@@ -2,7 +2,7 @@
     <div class="logo-container col-sm-4">
         <img src="../images/logo.png" alt="TopGit Logo" title="TopGit Logo" />
     </div>
-    <div class="status-container col-sm-5 col-sm-offset-3 ng-scope text-center alert alert-success" ng-if="foundResults">
-        <p>Found <strong>{{recordsCount}}</strong> repository results in <strong>{{searchTerm}}</strong></p>
+    <div class="status-container col-sm-5 col-sm-offset-3 text-center alert alert-success" ng-if="foundResults">
+        <p>Found <strong>{{recordsCount}}</strong> repository results <span ng-if="searchTerm">in <strong>{{searchTerm}}</strong></span>.</p>
     </div>
 </div>

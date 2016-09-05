@@ -142,3 +142,27 @@ body{
 #sidebar .item p{
     margin: 0
 }
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+    display: none !important;
+}
+
+/*Angular animation classes*/
+.fade.ng-enter,.view-frame.ng-enter,
+.fade.ng-leave {
+    -webkit-transition: all 1s ease;
+    transition: all 1s ease;
+}
+.view-frame.ng-enter {
+    opacity: 0;
+}
+.view-frame.ng-enter-active {
+    opacity: .5;
+}
+.view-frame.ng-leave {
+    opacity: 1;
+}
+.view-frame.ng-leave-active {
+    opacity: 0;
+}
+/* End Angular animation classes*/

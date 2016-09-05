@@ -1,4 +1,4 @@
-<ul>
+<ul ng-animate="'animate'">
     <li ng-repeat="item in items | filter: filterFn">
         <a ng-href="{{item.html_url}}" target="_blank">
             <div class="item">
@@ -11,11 +11,11 @@
                         <h3>{{item.full_name}}</h3>
                     </div>
                     <div class="counters pull-right">
-                        <span>
+                        <span title="{{item.stargazers_count}} people starred this repository.">
                             <span class="glyphicon glyphicon-star"></span>
                             <span class="count">{{item.stargazers_count}}</span>
                         </span>
-                        <span>
+                        <span title="{{item.watchers_count}} people watching this repository.">
                             <span class="glyphicon glyphicon-eye-open"></span>
                             <span class="count">{{item.watchers_count}}</span>
                         </span>
@@ -30,6 +30,6 @@
     </li>
 </ul>
 
-<div class="loadmore text-center" ng-if="foundResults">
+<div class="loadmore text-center" ng-if="hasMore">
     <button class="btn btn-primary" ng-click="loadMore()">Load More</button>
 </div>

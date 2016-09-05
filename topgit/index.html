@@ -24,7 +24,7 @@
             <header id="header">
                 <nav class="cf" ng-include="'views/nav.html'"></nav>
             </header>
-            <div class="page" ng-controller="DataController">
+            <div class="page">
                 <div class="container-fluid wrapper">
 
                     <div id="content" class="col-sm-8 section">
@@ -46,12 +46,12 @@
                             </div>
                         </div>
 
-                        <div class="srs" ng-view></div>
+                        <div class="srs view-frame" ng-view></div>
 
                     </div>
 
                     <div id="sidebar" class="col-sm-4 section">
-                        <div class="item-group">
+                        <div class="item-group" ng-if="rateLimit">
                             <p class="item-heading">
                                 <span class="glyphicon glyphicon-tasks"></span>
                                 Rate Limit
@@ -60,14 +60,14 @@
                                 <p>{{rateLimitRemaining}} out of {{rateLimit}}</p>
                             </div>
                         </div>
-                        <div class="item-group">
+                        <div class="item-group" ng-if="slider.options">
                             <p class="item-heading">
                                 <span class="glyphicon glyphicon-star"></span>
                                 Stars
                             </p>
                             <div class="item">
                                 <div class="progress-box">
-                                    <div ng-if="slider.options">
+                                    <div>
                                         <rzslider
                                                 rz-slider-model="slider.value"
                                                 rz-slider-options="slider.options"
