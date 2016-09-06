@@ -3,48 +3,38 @@
     <head>
         <meta charset="UTF-8">
         <title>TopGit - Finding the best github projects!</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <meta name="viewport" content="width=device-width, user-scalable=no">
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/rzslider.css">
         <link rel="stylesheet" href="css/nprogress.css">
         <link rel="stylesheet" href="css/style.css">
 
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+        <script src="js/lib/angular/angular.min.js"></script>
+        <script src="js/lib/angular/angular-route.min.js"></script>
+        <script src="js/lib/angular/angular-animate.min.js"></script>
         <script src="js/nprogress.js"></script>
         <script src="js/rzslider.js"></script>
-        <script src="js/controllers.js"></script>
+        <script src="js/controllers/data.js"></script>
         <script src="js/app.js"></script>
+        <script src="js/controllers/search.js"></script>
+        <script src="js/directives/directives.js"></script>
+        <script src="js/services/repository.js"></script>
     </head>
 
     <body>
 
         <div id="main" class="container">
             <header id="header">
-                <nav class="cf" ng-include="'views/nav.html'"></nav>
+                <!--<nav class="cf" ng-include="'views/nav.html'"></nav>-->
+                <navbar-page></navbar-page>
             </header>
             <div class="page">
                 <div class="container-fluid wrapper">
 
                     <div id="content" class="col-sm-8 section">
-                        <div class="searchbox">
-                            <form class="navbar-form text-center" name="searchForm" ng-submit="searchRepos()" role="search" novalidate>
-                                <div class="input-group">
-                                    <input type="text" class="form-control" ng-change="searching()" ng-model="selLang" ng-required="true" value="{{searchTerm}}" placeholder="Search by language">
-                                    <div class="input-group-btn">
-                                        <button class="btn btn-default" type="submit" ng-disabled="searchForm.$invalid"><i class="glyphicon glyphicon-search"></i></button>
-                                    </div>
-                                </div>
-                            </form>
-                            <div class="sresults" ng-if="search && selLang" id="src">
-                                <ul>
-                                    <li ng-repeat="lang in languages | filter: selLang" ng-click="selectLang(lang)">
-                                        {{lang}}
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
+
+                        <!--<search-box></search-box>-->
 
                         <div class="srs view-frame" ng-view></div>
 

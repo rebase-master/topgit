@@ -1,0 +1,17 @@
+<div class="searchbox" ng-controller="SearchController">
+    <form class="navbar-form text-center" name="searchForm" ng-submit="searchRepos()" role="search" novalidate>
+        <div class="input-group">
+            <input type="text" class="form-control" ng-change="searching()" ng-model="selLang" ng-required="true" value="{{searchTerm}}" placeholder="Search by language">
+            <div class="input-group-btn">
+                <button class="btn btn-default" type="submit" ng-disabled="searchForm.$invalid"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+        </div>
+    </form>
+    <div class="sresults" ng-if="search && selLang" id="src">
+        <ul>
+            <li ng-repeat="lang in languages | filter: selLang" ng-click="selectLang(lang)">
+                {{lang}}
+            </li>
+        </ul>
+    </div>
+</div>
