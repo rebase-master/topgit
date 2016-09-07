@@ -1,3 +1,6 @@
+<div class="alert alert-info text-center" ng-if="noResult">
+    <p>No Results found!</p>
+</div>
 <ul ng-animate="'animate'">
     <li ng-repeat="item in items | filter: filterFn">
         <a ng-href="{{item.html_url}}" target="_blank">

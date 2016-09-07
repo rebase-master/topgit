@@ -35,6 +35,23 @@
                     <div id="content" class="col-sm-8 section">
 
                         <!--<search-box></search-box>-->
+                        <div class="searchbox" ng-controller="SearchController">
+                            <form class="navbar-form text-center" name="searchForm" role="search" novalidate>
+                                <div class="input-group">
+                                    <input type="text" class="form-control" ng-change="searching()" ng-model="selLang" ng-required="true" value="{{searchTerm}}" placeholder="Search by language">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default" ng-click="searchRepos()"><i class="glyphicon glyphicon-search"></i></button>
+                                    </div>
+                                </div>
+                            </form>
+                            <div class="sresults" ng-if="search && selLang" id="src">
+                                <ul>
+                                    <li ng-repeat="lang in languages | filter: selLang" ng-click="selectLang(lang)">
+                                        {{lang}}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
 
                         <div class="srs view-frame" ng-view></div>
 
