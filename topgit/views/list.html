@@ -31,5 +31,6 @@
 </ul>
 
 <div class="loadmore text-center" ng-if="hasMore">
-    <button class="btn btn-primary" ng-click="loadMore()" ng-disabled="loadingResults">Load More</button>
+    <button class="btn btn-primary" ng-if="prev" ng-click="loadPrev()" ng-disabled="loadingResults">Previous</button>
+    <button class="btn btn-primary" ng-if="next" ng-click="loadNext()" ng-disabled="loadingResults">Next</button>
 </div>

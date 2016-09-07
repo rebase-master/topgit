@@ -4,63 +4,61 @@ appControllers.controller('DataController', ['$scope', '$rootScope', '$http', '$
 
     "use strict";
 
-    //$scope.items = [];
     $rootScope.foundResults = false;
-
     NProgress.start();
 
     //For debugging/testing use local data
-    //$http.get('data/sample.json',{cache:true}).success(function(response) {
-    //    $scope.items = response.data.items;
-    //    console.log($scope.items);
-    //    NProgress.done();
-    //});
+    //var url = "data/sample.json";
+    //fetchAndSetRepo(url);
 
     var url = "https://api.github.com/search/repositories?q=stars:>1&s=stars&type=Repositories&callback=JSON_CALLBACK";
+    fetchAndSetRepo(url);
 
-    //Repos.setRepo(url);
-    //var repo = Repos.setRepo(url)
+    function fetchAndSetRepo(url){
+        Repos.fetchRepos(url)
+            .then(function (response) {
 
-    Repos.setRepo(url)
-    .then(function (response) {
-        $scope.items = response.data.items;
-        console.log($scope.items);
-    }, function (data) {
-        console.log("error");
-    });
+                var result = Repos.getRepo();
+                $rootScope.rateLimitRemaining   = result.meta.rateLimitRemaining;
+                $rootScope.rateLimit            = result.meta.rateLimit;
+                $rootScope.recordsCount     = result.data.totalCount;
+                $rootScope.slider           = result.slider;
+                $rootScope.foundResults     = true;
+                $scope.hasMore              = result.hasMore;
+                $scope.prev                 = result.link.prev;
+                $scope.next                 = result.link.next;
+                $scope.items                = result.data.items;
+                $scope.loadingResults       = false;
 
-    //.then(function (data) {
-    //    //$timeout(function () {
-    //    //    Repos.setRepo(data);
-    //        var repo = Repos.getRepo();
-    //        $scope.items = repo.data.items;
-    //        console.log($scope.items);
-    //    //})
-    //    //$scope.$apply();
-    //    //console.log(repo.data.items);
-    //}, function (data) {
-    //    console.log("error");
-    //});
+                console.log(result);
 
+            }, function (data) {
+                console.log("error");
+            });
+    }
 
-    //$scope.watch('items', function () {
-    //    $scope.$apply();
-    //});
-    
-    //$scope.filterFn = function(item)
-    //{
-    //    return item['stargazers_count'] >= $rootScope.slider.value
-    //};
-    //
-    //$scope.refreshSlider = function () {
-    //    $timeout(function () {
-    //        $scope.$broadcast('rzSliderForceRender');
-    //    });
-    //};
-    //
-    //$rootScope.loadMore = function () {
-    //    //fetchRepos(paginateLink);
-    //};
+    $scope.filterFn = function(item)
+    {
+        return item['stargazers_count'] >= $rootScope.slider.value
+    };
+
+    $scope.refreshSlider = function () {
+        $timeout(function () {
+            $scope.$broadcast('rzSliderForceRender');
+        });
+    };
+
+    $scope.loadNext = function () {
+        $scope.items = null;
+        $scope.loadingResults = true;
+        fetchAndSetRepo($scope.next);
+    };
+
+    $scope.loadPrev = function () {
+        $scope.items = null;
+        $scope.loadingResults = true;
+        fetchAndSetRepo($scope.prev);
+    };
 
 }]);
 

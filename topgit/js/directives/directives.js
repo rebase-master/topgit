@@ -6,12 +6,12 @@ tgApp.directive("navbarPage", function () {
 });
 
 
-tgApp.directive("searchBox", function () {
-    return {
-        restrict: 'E',
-        templateUrl: 'views/search.html',
-        controller: 'SearchController',
-        controllerAs: 'sc'
-    }
-});
+//tgApp.directive("searchBox", function () {
+//    return {
+//        restrict: 'E',
+//        templateUrl: 'views/search.html',
+//        controller: 'SearchController',
+//        controllerAs: 'sc'
+//    }
+//});
 
