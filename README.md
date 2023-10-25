@@ -1,6 +1,6 @@
 #TopGit Application
 This is a pseudo front end application which would let the users help list and browse top github projects conveniently. The app is
-hosted on Github Pages here: [https://steady-daddy.github.io/topgit](https://steady-daddy.github.io/topgit)
+hosted on Github Pages here: [https://rebase-master.github.io/topgit](https://rebase-master.github.io/topgit)
 
 ##Instructions
 
